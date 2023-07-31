@@ -16,8 +16,7 @@ public class MascotaAPP {
         
         ServicioMascota servMasc = new ServicioMascota();
         
-        servMasc.crearMascota();
-        servMasc.crearMascota();
+        servMasc.fabricaChiquitos(140);
         
         servMasc.mostrarMascotas();
     }
