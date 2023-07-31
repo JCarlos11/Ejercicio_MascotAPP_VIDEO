@@ -16,14 +16,14 @@ public class ServicioMascota {
     
     private Scanner leer;
     
-    private ArrayList<String> mascotas;
+    private ArrayList<Mascota> mascotas;
     
     public ServicioMascota(){
         this.leer = new Scanner(System.in).useDelimiter("\n");
         this.mascotas = new ArrayList();
     }
     
-    public void crearMascota(){
+    public Mascota crearMascota(){
        
         System.out.println("Introducir nombre");
         String nombre = leer.next();
@@ -34,19 +34,35 @@ public class ServicioMascota {
         System.out.println("Introducir tipo");
         String tipo = leer.next();
         
-        String mascota = nombre + " " + apodo + " " + tipo;
+        Mascota m = new Mascota(nombre,apodo, tipo);  
         
-        mascotas.add(mascota);
-        
+        mascotas.add(m);
+    
+        return m;    
     }
     
     public void mostrarMascotas(){
     
         System.out.println("Las mascotas actuales de la Lista Mascotas son: ");
-        for(String aux : mascotas){
-            System.out.println(aux);
+        for(Mascota aux : mascotas){
+            System.out.println(aux.toString());
         }
         System.out.println("Cantidad = " + mascotas.size());
     }
     
+    public void fabricaChiquitos(int cantidad){
+        
+        for (int i = 0; i < cantidad; i++) {
+              
+            mascotas.add(new Mascota("Fer", "Chiquito", "Beagle"));
+        }
+    }
+    
+    public void fabricaMascota(int cantidad){
+        for (int i = 0; i <cantidad; i++) {
+            Mascota mascotaCreada = crearMascota();
+            
+            System.out.println(mascotaCreada.toString());
+        }
+    }
 }
