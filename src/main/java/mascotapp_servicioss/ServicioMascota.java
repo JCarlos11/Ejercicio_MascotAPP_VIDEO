@@ -34,12 +34,44 @@ public class ServicioMascota {
         System.out.println("Introducir tipo");
         String tipo = leer.next();
         
-        Mascota m = new Mascota(nombre,apodo, tipo);  
+        Mascota m = new Mascota(apodo,tipo, nombre);  
         
-        mascotas.add(m);
+        //mascotas.add(m);
     
         return m;    
     }
+    
+    public void agregarMascota(Mascota m){
+        mascotas.add(m);
+    }
+    
+    public void actualizarMascota(int index){
+        
+        if(index <= (mascotas.size() - 1)){
+        System.out.println("");
+        System.out.println("---------Actualizar---------");
+        
+        Mascota m = mascotas.get(index);
+        m.setApodo("Roberto");
+        
+        //O tambien
+//        Mascota m = crearMascota();
+//        
+//        mascotas.set(index, m);
+        }else{
+            System.out.println("El indice es erroneo");
+        }
+    }
+    
+    public void eliminarMascota(int index){
+        if(index <= (mascotas.size() - 1)){
+        mascotas.remove(index);
+        }else{
+            System.out.println("Fallo al eliminar. El indice es erroneo");
+        }
+    
+    }
+        
     
     public void mostrarMascotas(){
     
@@ -62,7 +94,11 @@ public class ServicioMascota {
         for (int i = 0; i <cantidad; i++) {
             Mascota mascotaCreada = crearMascota();
             
+            agregarMascota(mascotaCreada);
+            
             System.out.println(mascotaCreada.toString());
         }
     }
+    
+    
 }

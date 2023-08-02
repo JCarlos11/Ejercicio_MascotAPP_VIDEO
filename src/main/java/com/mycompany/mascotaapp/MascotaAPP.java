@@ -16,8 +16,14 @@ public class MascotaAPP {
         
         ServicioMascota servMasc = new ServicioMascota();
         
-        servMasc.fabricaChiquitos(140);
+        servMasc.fabricaMascota(2);
         
         servMasc.mostrarMascotas();
+        
+        servMasc.actualizarMascota(0);
+        
+        servMasc.eliminarMascota(0);
+        
+         servMasc.mostrarMascotas(); 
     }
 }
