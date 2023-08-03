@@ -4,6 +4,10 @@
 
 package com.mycompany.mascotaapp;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import mascotapp.utilidades.Comparadores;
+import mascotapp_entidades.Mascota;
 import mascotapp_servicioss.ServicioMascota;
 
 /**
@@ -14,16 +18,41 @@ public class MascotaAPP {
 
     public static void main(String[] args) {
         
-        ServicioMascota servMasc = new ServicioMascota();
+        ArrayList<Mascota> mascotas = new ArrayList();
         
-        servMasc.fabricaMascota(2);
+        mascotas.add(new Mascota("Chiquito", "Perro", "Fer"));
+        mascotas.add(new Mascota("Chiquito", "Perro", "Fer"));
+        mascotas.add(new Mascota("Chiquito", "Perro", "Fer"));
+        mascotas.add(new Mascota("Chiquito", "Perro", "Fer"));
+        mascotas.add(new Mascota("Chiquito", "Perro", "Fer"));
+        mascotas.add(new Mascota("Lola", "Gato", "Pepa"));
+        mascotas.add(new Mascota("Lola", "Gato", "Pepa"));
+        mascotas.add(new Mascota("Lola", "Gato", "Pepa"));
+        mascotas.add(new Mascota("Lola", "Gato", "Pepa"));
+        mascotas.add(new Mascota("Lola", "Gato", "Pepa"));
+        mascotas.add(new Mascota("Chiquito", "Perro", "Fer"));
+        mascotas.add(new Mascota("Chiquito", "Perro", "Fer"));
+        mascotas.add(new Mascota("Chiquito", "Perro", "Fer"));
+        mascotas.add(new Mascota("Chiquito", "Perro", "Fer"));
         
-        servMasc.mostrarMascotas();
+        Collections.sort(mascotas,Comparadores.ordenarPorNombreDesc);
         
-        servMasc.actualizarMascota(0);
+        Collections.shuffle(mascotas);
         
-        servMasc.eliminarMascota(0);
+        for (Mascota mascota : mascotas) {
+            System.out.println(mascota);
+        }
         
-         servMasc.mostrarMascotas(); 
+//        ServicioMascota servMasc = new ServicioMascota();
+//        
+//        servMasc.fabricaMascota(2);
+//        
+//        servMasc.mostrarMascotas();
+//        
+//        servMasc.actualizarMascota(0);
+//        
+//        servMasc.eliminarMascota(0);
+//        
+//         servMasc.mostrarMascotas(); 
     }
 }
