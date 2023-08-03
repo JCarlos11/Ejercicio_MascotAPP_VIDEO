@@ -71,6 +71,17 @@ public class ServicioMascota {
         }
     
     }
+    
+    public void eliminarMascotaPorNombre(String nombre){
+        
+        for (int i = 0; i < mascotas.size(); i++){
+        
+            Mascota m = mascotas.get(i);
+            if (m.getNombre().equals(nombre)) {
+                mascotas.remove(i);
+            }
+        }
+    }
         
     
     public void mostrarMascotas(){
@@ -100,5 +111,15 @@ public class ServicioMascota {
         }
     }
     
+    public void actualizarMascotaPorNombre(String nombreViejo, String nombreNuevo){
+        
+        for(int i = 0; i < mascotas.size(); i++){
+            Mascota m = mascotas.get(i);
+            
+            if(m.getNombre().equals(nombreViejo)){
+                m.setNombre(nombreNuevo);
+            }
+        }
+    }
     
 }
