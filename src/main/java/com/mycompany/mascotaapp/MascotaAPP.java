@@ -6,6 +6,9 @@ package com.mycompany.mascotaapp;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.TreeSet;
 import mascotapp.utilidades.Comparadores;
 import mascotapp_entidades.Mascota;
 import mascotapp_servicioss.ServicioMascota;
@@ -18,7 +21,8 @@ public class MascotaAPP {
 
     public static void main(String[] args) {
         
-        ArrayList<Mascota> mascotas = new ArrayList();
+        
+        TreeSet<Mascota> mascotas = new TreeSet();
         
         mascotas.add(new Mascota("Chiquito", "Perro", "Fer"));
         mascotas.add(new Mascota("Chiquito", "Perro", "Fer"));
@@ -35,10 +39,10 @@ public class MascotaAPP {
         mascotas.add(new Mascota("Chiquito", "Perro", "Fer"));
         mascotas.add(new Mascota("Chiquito", "Perro", "Fer"));
         
-        Collections.sort(mascotas,Comparadores.ordenarPorNombreDesc);
-        
-        Collections.shuffle(mascotas);
-        
+//        Collections.sort(mascotas,Comparadores.ordenarPorNombreDesc);
+//        
+//        Collections.shuffle(mascotas);
+//        
         for (Mascota mascota : mascotas) {
             System.out.println(mascota);
         }

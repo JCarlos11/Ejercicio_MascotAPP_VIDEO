@@ -4,11 +4,13 @@
  */
 package mascotapp_entidades;
 
+import java.util.Objects;
+
 /**
  *
  * @author JCarlos
  */
-public class Mascota {
+public class Mascota implements Comparable<Mascota> {
     
     private String apodo;
     private String tipo;
@@ -86,9 +88,69 @@ public class Mascota {
         this.raza = raza;
     }
 
+    //Sirve para generar un codigo numerico con base en la clase
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 53 * hash + Objects.hashCode(this.apodo);
+        hash = 53 * hash + Objects.hashCode(this.tipo);
+        hash = 53 * hash + Objects.hashCode(this.nombre);
+        hash = 53 * hash + Objects.hashCode(this.color);
+        hash = 53 * hash + Objects.hashCode(this.edad);
+        hash = 53 * hash + (this.cola ? 1 : 0);
+        hash = 53 * hash + Objects.hashCode(this.raza);
+        hash = 53 * hash + this.energia;
+        return hash;
+    }
+
+    //Sirve para comparar una clase mascota con otra clase mascota
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Mascota other = (Mascota) obj;
+        if (this.cola != other.cola) {
+            return false;
+        }
+        if (this.energia != other.energia) {
+            return false;
+        }
+        if (!Objects.equals(this.apodo, other.apodo)) {
+            return false;
+        }
+        if (!Objects.equals(this.tipo, other.tipo)) {
+            return false;
+        }
+        if (!Objects.equals(this.nombre, other.nombre)) {
+            return false;
+        }
+        if (!Objects.equals(this.color, other.color)) {
+            return false;
+        }
+        if (!Objects.equals(this.raza, other.raza)) {
+            return false;
+        }
+        return Objects.equals(this.edad, other.edad);
+    }
+    
+    
+
     @Override
     public String toString() {
         return "Mascota{" + "apodo=" + apodo + ", tipo=" + tipo + ", nombre=" + nombre + ", color=" + color + ", edad=" + edad + ", cola=" + cola + ", raza=" + raza + '}';
+    }
+    
+
+    @Override
+    public int compareTo(Mascota o) {
+        return o.getNombre().compareTo(this.nombre);
     }
     
     
